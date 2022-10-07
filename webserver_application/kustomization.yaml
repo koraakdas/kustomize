@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: 2048-game
+
+commonLabels:
+ app.kubernetes.io/name: 2048-game
+
+images:
+- name: nginx
+  newName: alexwhen/docker-2048
+
+patches:
+  - path: add-service-annotation.yaml
+    target:
+     kind: Service
+
+resources:
+- webserver-deployment.yaml
