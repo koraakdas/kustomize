@@ -1,0 +1,2 @@
+# kustomize
+kustomization in kubernetes
