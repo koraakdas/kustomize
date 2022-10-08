@@ -13,10 +13,14 @@ images:
 replacements:
 - source:
    kind: Service
-   fieldPath: metadata.annotations.service\.beta\.kubernetes\.io/aws-load-balancer-security-groups\:\"sg\"]
+   fieldPath: metadata.annotations.service\.beta\.kubernetes\.io/aws-load-balancer-security-groups\:\"sg\"
   targets:
   - select:
-     fieldPaths: metadata.annotations.[service.beta.kubernetes.io/aws-load-balancer-security-groups]
+     kind: Service
+     name: webserver
+     fieldPaths: 
+     - metadata.annotations.service\.beta\.kubernetes\.io/aws-load-balancer-security-groups
+     
 
 resources:
 - webserver-deployment.yaml
