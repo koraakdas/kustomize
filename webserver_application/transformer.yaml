@@ -1,0 +1,10 @@
+apiVersion: builtin
+kind: AnnotationsTransformer
+metadata:
+ name: load-balancer-annotation
+annotations:
+ service.beta.kubernetes.io/aws-load-balancer-security-groups: "sg-0e99a83e9f0f7ff55"
+fieldSpecs:
+- path: metadata/annotations
+  kind: Service
+  create: true

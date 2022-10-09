@@ -10,17 +10,8 @@ images:
 - name: nginx
   newName: alexwhen/docker-2048
 
-replacements:
-- source:
-   kind: Service
-   fieldPath: metadata.annotations.service\.beta\.kubernetes\.io/aws-load-balancer-security-groups\:\"sg\"
-  targets:
-  - select:
-     kind: Service
-     name: webserver
-     fieldPaths: 
-     - metadata.annotations.service\.beta\.kubernetes\.io/aws-load-balancer-security-groups
-     
-
 resources:
 - webserver-deployment.yaml
+
+transformers:
+- transformer.yaml
