@@ -13,5 +13,12 @@ images:
 resources:
 - webserver-deployment.yaml
 
-transformers:
-- transformer.yaml
+configMapGenerator:
+- name: webserver-properties
+  envs:
+   - webserver.properties
+
+replacements:
+  - path: annotation-replacement.yaml
+  - path: servicePort-replacement.yaml
+  - path: targetPort-replacement.yaml

@@ -1,0 +1,8 @@
+source:
+  kind: ConfigMap
+  fieldPath: data.port
+targets:
+- select:
+    kind: Service
+  fieldPaths:
+    - spec.ports.*.targetPort
