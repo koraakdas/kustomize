@@ -1,0 +1,8 @@
+source:
+  kind: ConfigMap
+  fieldPath: data.security-group
+targets:
+- select:
+    kind: Service
+  fieldPaths:
+    - metadata.annotations.service\.beta\.kubernetes\.io/aws-load-balancer-security-groups
