@@ -19,6 +19,6 @@ spec:
       - name: webserver
         image: nginx:1.14.2
         imagePullPolicy: Always
-     port:
-      - containerPort: 80
-        protocol: TCP
+        ports:
+          - containerPort: 80
+            protocol: TCP
