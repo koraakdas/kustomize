@@ -9,3 +9,4 @@ resources:
 
 patchesStrategicMerge:
 - resource-limit.yaml
+- privilege.yaml
