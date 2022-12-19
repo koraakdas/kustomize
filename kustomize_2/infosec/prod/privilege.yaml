@@ -1,0 +1,19 @@
+ apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+   name: webserver
+   labels:
+     app.kubernetes.io/name: nginx
+ spec:
+   selector:
+     matchLabels:
+       app.kubernetes.io/name: nginx
+   template:
+     metadata:
+       name: webserver
+     spec:
+       containers:
+         - name: webserver
+           securityContext:
+            allowPrivilegeEscalation: true
+            readOnlyRootFilesystem: true
